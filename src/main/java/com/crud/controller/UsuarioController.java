@@ -47,4 +47,12 @@ public class UsuarioController {
 		model.addAttribute("usuario", u);		
 		return "edit";
 	}
+	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		Usuario u = usuarioRepository.getOne(id);
+		logg.info("Objeto eliminado {}",u);	
+		usuarioRepository.delete(u);
+		return "redirect:/usuarios";
+	}
 }

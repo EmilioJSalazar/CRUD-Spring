@@ -37,8 +37,8 @@
 					<td th:text="${usuarios.correo}"></td>
 					<td th:text="${usuarios.telefono}"></td>
 					<td th:text="${usuarios.contrasenia}"></td>
-					<th><a th:href="@{/usuarios/edit/{id} (id=${usuarios.id}) }" class="btn btn-warning"> Editar</a></th>
-					<th><a href="" class="btn btn-danger"> Eliminar</a></th>
+					<th><a th:href="@{/usuarios/edit/{id} (id=${usuarios.id})}" class="btn btn-warning"> Editar</a></th>
+					<th><a th:href="@{/usuarios/delete/{id} (id=${usuarios.id})}" class="btn btn-danger"> Eliminar</a></th>
 				</tr>
 			</tbody>
 		</table>
