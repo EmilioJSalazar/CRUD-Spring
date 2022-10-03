@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Crear Usuario</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Crear Usuarios</h1>
+		
+		<form th:action="@{/usuarios/save}" method="post">
+		
+			<div class="mb-3">
+				<label for="formGroupExampleInput" class="form-label">Nombre</label> <input type="text" class="form-control"
+					id="formGroupExampleInput" name="nombre"
+					placeholder="Escriba su nombre">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput2" class="form-label">Apellido</label> <input type="text" class="form-control"
+					id="formGroupExampleInput2" name="apellido"
+					placeholder="Escriba su apellido">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput2" class="form-label">Correo</label> <input type="text" class="form-control"
+					id="formGroupExampleInput2" name="correo"
+					placeholder="Escriba su correo">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput2" class="form-label">Teléfono</label> <input type="text" class="form-control"
+					id="formGroupExampleInput2" name="telefono"
+					placeholder="Escriba su teléfono">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput2" class="form-label">Contraseña</label> <input type="text" class="form-control"
+					id="formGroupExampleInput2" name="contrasenia"
+					placeholder="Escriba una contraseña">
+			</div>
+			
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>

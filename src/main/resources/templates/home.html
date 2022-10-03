@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Usuarios</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<h1>Lista de Usuarios</h1>
+		
+		<a th:href="@{/usuarios/create}" class="btn btn-primary"> Nuevo Usuario</a>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Correo</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Contraseña</th>
+					<th scope="col">Acción</th>
+					<th scope="col">Acción</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuarios:${usuarios}">
+					<td scope="row" th:text="${usuarios.id}"></td>
+					<td th:text="${usuarios.nombre}"></td>
+					<td th:text="${usuarios.apellido}"></td>
+					<td th:text="${usuarios.correo}"></td>
+					<td th:text="${usuarios.telefono}"></td>
+					<td th:text="${usuarios.contrasenia}"></td>
+					<th><a th:href="@{/usuarios/edit/{id} (id=${usuarios.id}) }" class="btn btn-warning"> Editar</a></th>
+					<th><a href="" class="btn btn-danger"> Eliminar</a></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
