@@ -25,6 +25,11 @@ public class Rol {
 		this.nombre = nombre;
 	}
 
+	public Rol(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -37,7 +37,7 @@ public class UsuarioController {
 	public String save(Usuario usuario) {
 		logg.info("Información del objeto usuario, {}", usuario);
 		usuarioRepository.save(usuario);
-		return "redirect:/usuarios";
+		return "redirect:/usuarios?exito";
 	}
 	
 	@GetMapping("/edit/{id}")

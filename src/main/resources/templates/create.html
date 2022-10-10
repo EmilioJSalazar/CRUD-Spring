@@ -10,39 +10,127 @@
 	crossorigin="anonymous">
 </head>
 <body>
+	<!--  <nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Registro e
+					inicio de sesión</a>
+			</div>
+		</div>
+	</nav>
+	-->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Emilio Salazar</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="#">Home</a> <a
+						class="nav-link" href="#">Features</a> <a class="nav-link"
+						href="#">Pricing</a> <a class="nav-link disabled">Disabled</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 con-md-offset-3">
+				<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicación</div>
+				</div>
+
+				<h1>Crear Usuarios</h1>
+
+				<form th:action="@{/create}" method="post" th:object="${usuario}">
+
+					<div class="mb-3">
+						<label for="formGroupExampleInput" class="form-label">Nombre</label>
+						<input type="text" class="form-control" id="formGroupExampleInput"
+							name="nombre" placeholder="Escriba su nombre">
+					</div>
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">Apellido</label>
+						<input type="text" class="form-control"
+							id="formGroupExampleInput2" name="apellido"
+							placeholder="Escriba su apellido">
+					</div>
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">Correo</label>
+						<input type="email" class="form-control"
+							id="formGroupExampleInput2" name="correo"
+							placeholder="Escriba su correo">
+					</div>
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">Teléfono</label>
+						<input type="text" class="form-control"
+							id="formGroupExampleInput2" name="telefono"
+							placeholder="Escriba su teléfono">
+					</div>
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">Contraseña</label>
+						<input type="password" class="form-control"
+							id="formGroupExampleInput2" name="contrasenia"
+							placeholder="Escriba una contraseña">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Guardar</button>
+						<span>Si estas registrado <a th:href="@{/login}">inicio sesión aquí</a></span>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+	<!--  
 	<div class="container">
 		<h1>Crear Usuarios</h1>
-		
+
 		<form th:action="@{/usuarios/save}" method="post">
-		
+
 			<div class="mb-3">
-				<label for="formGroupExampleInput" class="form-label">Nombre</label> <input type="text" class="form-control"
-					id="formGroupExampleInput" name="nombre"
-					placeholder="Escriba su nombre">
+				<label for="formGroupExampleInput" class="form-label">Nombre</label>
+				<input type="text" class="form-control" id="formGroupExampleInput"
+					name="nombre" placeholder="Escriba su nombre">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Apellido</label> <input type="text" class="form-control"
-					id="formGroupExampleInput2" name="apellido"
-					placeholder="Escriba su apellido">
+				<label for="formGroupExampleInput2" class="form-label">Apellido</label>
+				<input type="text" class="form-control" id="formGroupExampleInput2"
+					name="apellido" placeholder="Escriba su apellido">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Correo</label> <input type="text" class="form-control"
-					id="formGroupExampleInput2" name="correo"
-					placeholder="Escriba su correo">
+				<label for="formGroupExampleInput2" class="form-label">Correo</label>
+				<input type="text" class="form-control" id="formGroupExampleInput2"
+					name="correo" placeholder="Escriba su correo">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Teléfono</label> <input type="text" class="form-control"
-					id="formGroupExampleInput2" name="telefono"
-					placeholder="Escriba su teléfono">
+				<label for="formGroupExampleInput2" class="form-label">Teléfono</label>
+				<input type="text" class="form-control" id="formGroupExampleInput2"
+					name="telefono" placeholder="Escriba su teléfono">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Contraseña</label> <input type="text" class="form-control"
-					id="formGroupExampleInput2" name="contrasenia"
-					placeholder="Escriba una contraseña">
+				<label for="formGroupExampleInput2" class="form-label">Contraseña</label>
+				<input type="text" class="form-control" id="formGroupExampleInput2"
+					name="contrasenia" placeholder="Escriba una contraseña">
 			</div>
-			
+
 			<button type="submit" class="btn btn-success">Guardar</button>
 		</form>
 	</div>
+	-->
 </body>
 </html>
