@@ -8,4 +8,5 @@ import com.crud.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 
+	public Usuario findBycorreo(String correo);
 }
