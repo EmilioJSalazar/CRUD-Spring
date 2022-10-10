@@ -10,4 +10,9 @@ public class RegistroController {
 	public String iniciarSesion() {
 		return "login";
 	}
+	
+	@GetMapping("/")
+	public String verPaginaDeInicio() {
+		return "index";
+	}
 }

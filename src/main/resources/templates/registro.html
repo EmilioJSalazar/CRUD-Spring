@@ -38,7 +38,7 @@
 
 				<h1>Crear Usuarios</h1>
 
-				<form th:action="@{/usuarios/save}" method="post" th:object="${usuario}">
+				<form th:action="@{/registro}" method="post" th:object="${usuario}">
 
 					<div class="mb-3">
 						<label for="formGroupExampleInput" class="form-label">Nombre</label>
@@ -71,6 +71,7 @@
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-success">Guardar</button>
+						<span>Si estas registrado <a th:href="@{/login}">inicio sesión aquí</a></span>
 					</div>
 				</form>
 

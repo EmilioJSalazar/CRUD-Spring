@@ -10,33 +10,56 @@
 	crossorigin="anonymous">
 </head>
 <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Emilio Salazar</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="/">Home</a> 
+					<a class="nav-link" href="/usuarios">CRUD</a> 
+				</div>
+			</div>
+		</div>
+	</nav>
 	<div class="container">
 		<h1>Editar Usuario</h1>
-		
-		<form th:action="@{/usuarios/save}" method="post">
-		<input type="hidden" name="id" th:value="${usuario.id}">
-		
+
+		<form th:action="@{/usuarios/update/{id} (id=${usuario.id})}" method="post">
+			<input type="hidden" name="id" th:value="${usuario.id}">
+
 			<div class="mb-3">
-				<label for="formGroupExampleInput" class="form-label">Nombre</label> <input type="text" class="form-control"
-					id="formGroupExampleInput" name="nombre" th:value="${usuario.nombre}">
+				<label for="formGroupExampleInput" class="form-label">Nombre</label>
+				<input type="text" class="form-control" id="formGroupExampleInput"
+					name="nombre" th:value="${usuario.nombre}">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Apellido</label> <input type="text" class="form-control"
-					id="formGroupExampleInput2" name="apellido" th:value="${usuario.apellido}">
+				<label for="formGroupExampleInput2" class="form-label">Apellido</label>
+				<input type="text" class="form-control" id="formGroupExampleInput2"
+					name="apellido" th:value="${usuario.apellido}">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Correo</label> <input type="email" class="form-control"
-					id="formGroupExampleInput2" name="correo" th:value="${usuario.correo}">
+				<label for="formGroupExampleInput2" class="form-label">Correo</label>
+				<input type="email" class="form-control" id="formGroupExampleInput2"
+					name="correo" th:value="${usuario.correo}">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Teléfono</label> <input type="text" class="form-control"
-					id="formGroupExampleInput2" name="telefono" th:value="${usuario.telefono}">
+				<label for="formGroupExampleInput2" class="form-label">Teléfono</label>
+				<input type="tel" class="form-control" id="formGroupExampleInput2" pattern="[0-9]{10}" required
+					name="telefono" th:value="${usuario.telefono}">
 			</div>
 			<div class="mb-3">
-				<label for="formGroupExampleInput2" class="form-label">Contraseña</label> <input type="password" class="form-control"
-					id="formGroupExampleInput2" name="contrasenia" th:value="${usuario.contrasenia}">
+				<label for="formGroupExampleInput2" class="form-label">Contraseña</label>
+				<input type="password" class="form-control"
+					id="formGroupExampleInput2" name="contrasenia"
+					th:value="${usuario.contrasenia}">
 			</div>
-			
+
 			<button type="submit" class="btn btn-success">Editar</button>
 			<a th:href="@{/usuarios}" class="btn btn-primary"> Regresar</a>
 		</form>

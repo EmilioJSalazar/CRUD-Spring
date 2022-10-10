@@ -11,7 +11,7 @@ import com.crud.dto.UsuarioRegistroDTO;
 import com.crud.service.UsuarioService;
 
 @Controller
-@RequestMapping("/create")
+@RequestMapping("/registro")
 public class RegistroUsuarioController {
 	
 	@Autowired
@@ -24,12 +24,12 @@ public class RegistroUsuarioController {
 	
 	@GetMapping
 	public String mostrarFormularioDeRegistro() {
-		return "create";
+		return "registro";
 	}
 	
 	@PostMapping
 	public String registrarCuentaDeUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO) {
-		usuarioService.guardar(registroDTO);
-		return "redirect:/create?exito";
+		usuarioService.guardar(registroDTO, 0);
+		return "redirect:/registro?exito";
 	}
 }

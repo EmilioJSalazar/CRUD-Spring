@@ -34,39 +34,11 @@
 	</nav>
 	<div class="container">
 		
-		<h1>Lista de Usuarios</h1>
+		<h1>Proyecto de Ingeniería Web con Spring</h1>
 		
 		<h4>Bienvenido<span sec:authentication="principal.username"></span></h4>
-
-		<a th:href="@{/usuarios/create}" class="btn btn-primary"> Nuevo
-			Usuario</a>
-
-		<table class="table">
-			<thead class="table-light">
-				<tr>
-					<th scope="col">Id</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Apellido</th>
-					<th scope="col">Correo</th>
-					<th scope="col">Telefono</th>
-					<th scope="col">Acción</th>
-					<th scope="col">Acción</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="usuarios:${usuarios}">
-					<td scope="row" th:text="${usuarios.id}"></td>
-					<td th:text="${usuarios.nombre}"></td>
-					<td th:text="${usuarios.apellido}"></td>
-					<td th:text="${usuarios.correo}"></td>
-					<td th:text="${usuarios.telefono}"></td>
-					<th><a th:href="@{/usuarios/edit/{id} (id=${usuarios.id})}"
-						class="btn btn-warning"> Editar</a></th>
-					<th><a th:href="@{/usuarios/delete/{id} (id=${usuarios.id})}"
-						class="btn btn-danger"> Eliminar</a></th>
-				</tr>
-			</tbody>
-		</table>
+		
+		<a th:href="@{/usuarios}" class="btn btn-primary"> Ir a CRUD</a>
 	</div>
 </body>
 </html>

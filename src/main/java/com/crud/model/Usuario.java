@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "correo"))
@@ -22,26 +24,31 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull
 	@Column(name = "nombre")
 	private String nombre;
 
+	@NotNull
 	@Column(name = "apellido")
 	private String apellido;
 
+	@NotNull
+	@Email
 	@Column(name = "correo")
 	private String correo;
 
+	@NotNull
 	@Column(name = "telefono")
 	private String telefono;
 
+	@NotNull
 	@Column(name = "contrasenia")
 	private String contrasenia;
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "usuarios_roles",
-			joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id")
-			)
+	@JoinTable(name = "usuarios_roles",
+		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"))
 	private Collection<Rol> roles;
 
 	public Usuario() {
