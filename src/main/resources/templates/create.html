@@ -21,8 +21,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="/">Home</a> 
-					<a class="nav-link" href="/usuarios">CRUD</a> 
+					<a class="nav-link" aria-current="page" href="/">Home</a> <a
+						class="nav-link active" href="/usuarios">CRUD</a>
 				</div>
 			</div>
 		</div>
@@ -38,7 +38,8 @@
 
 				<h1>Crear Usuarios</h1>
 
-				<form th:action="@{/usuarios/save}" method="post" th:object="${usuario}">
+				<form th:action="@{/usuarios/save}" method="post"
+					th:object="${usuario}">
 
 					<div class="mb-3">
 						<label for="formGroupExampleInput" class="form-label">Nombre</label>
@@ -59,8 +60,8 @@
 					</div>
 					<div class="mb-3">
 						<label for="formGroupExampleInput2" class="form-label">Teléfono</label>
-						<input type="tel" class="form-control" pattern="[0-9]{10}" required
-							id="formGroupExampleInput2" name="telefono"
+						<input type="tel" class="form-control" pattern="[0-9]{10}"
+							required id="formGroupExampleInput2" name="telefono"
 							placeholder="Escriba su teléfono">
 					</div>
 					<div class="mb-3">

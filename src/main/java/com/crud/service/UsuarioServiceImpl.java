@@ -50,7 +50,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = usuarioRepository.findBycorreo(username);
 		if(usuario == null) {
-			throw new UsernameNotFoundException("Usuario o password inválidos");
+			throw new UsernameNotFoundException("Usuario o contraseña inválidos");
 		}
 		return new User(usuario.getCorreo(), usuario.getContrasenia(), mapearAutoridadesARoles(usuario.getRoles()));
 	}
@@ -64,6 +64,5 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> listarUsuarios() {
 		return usuarioRepository.findAll();
 	}
-
 
 }
