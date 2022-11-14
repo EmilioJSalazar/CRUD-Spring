@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import com.crud.dto.UsuarioRegistroDTO;
 import com.crud.model.Rol;
 import com.crud.model.Usuario;
+import com.crud.repository.RolRepository;
 import com.crud.repository.UsuarioRepository;
 
 @Service
@@ -26,21 +27,30 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	private UsuarioRepository usuarioRepository;
+	private RolRepository rolRepository;
 
-	public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+	/*public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
 		super();
 		this.usuarioRepository = usuarioRepository;
+	}*/
+
+	public UsuarioServiceImpl(UsuarioRepository usuarioRepository, RolRepository rolRepository) {
+		super();
+		this.usuarioRepository = usuarioRepository;
+		this.rolRepository = rolRepository;
 	}
+
 
 	@Override
 	public Usuario guardar(UsuarioRegistroDTO registroDTO, Integer id) {
 		Usuario usuario; 
+		Rol rol = rolRepository.findBynombre("ROLE_USER");
 		if(id==0) {
 			usuario = new Usuario(registroDTO.getNombre(), registroDTO.getApellido(), registroDTO.getCorreo(),
-				registroDTO.getTelefono(), passwordEncoder.encode(registroDTO.getContrasenia()), Arrays.asList(new Rol("ROLE_USER")));
+				registroDTO.getTelefono(), passwordEncoder.encode(registroDTO.getContrasenia()), Arrays.asList(rol));
 		}else {
 			usuario = new Usuario(id, registroDTO.getNombre(), registroDTO.getApellido(), registroDTO.getCorreo(),
-					registroDTO.getTelefono(), passwordEncoder.encode(registroDTO.getContrasenia()), Arrays.asList(new Rol("ROLE_USER")));
+					registroDTO.getTelefono(), passwordEncoder.encode(registroDTO.getContrasenia()), Arrays.asList(rol));
 		}
 		
 		return usuarioRepository.save(usuario);
@@ -64,5 +74,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> listarUsuarios() {
 		return usuarioRepository.findAll();
 	}
+
 
 }

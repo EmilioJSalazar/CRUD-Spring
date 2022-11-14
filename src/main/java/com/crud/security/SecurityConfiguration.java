@@ -42,11 +42,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers(
-				//"/usuarios**",
 				"/registro**",
 				"/js/**",
 				"/css/**",
 				"/img/**").permitAll() //Valida los requests
+		.antMatchers("/admin/**","/usuarios/**").hasRole("ADMIN")
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()

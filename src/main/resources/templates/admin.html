@@ -25,10 +25,8 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="navbar-nav"><a class="nav-link active"
-						aria-current="page" href="/">Home</a>
-						<a class="nav-link"	href="/">Ventas</a>
-						<a class="nav-link"	href="/">Votación</a>
-						<a class="nav-link"	href="/">Reporte</a>	
+						aria-current="page" href="/">Home</a> <a class="nav-link"
+						href="/usuarios">CRUD</a> <a class="nav-link" href="/admin/tiempos">Tiempos</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav">
@@ -41,16 +39,14 @@
 	</nav>
 	<div class="container">
 
-		<h1>Proyecto de Ingeniería Web con Spring</h1>
+		<h1>Administrador</h1>
 
 		<h4>
 			Bienvenido <span sec:authentication="principal.username"></span>
 		</h4>
 
-		<a th:href="@{/}" class="btn btn-primary"> Registrar Venta</a>
-		<a th:href="@{/}" class="btn btn-primary"> Votación</a>
-		<a th:href="@{/}" class="btn btn-primary"> Reporte</a>
-		<a th:href="@{/admin}" class="btn btn-primary"> Administrador</a>
+		<a th:href="@{/usuarios}" class="btn btn-primary"> CRUD de Usuarios</a>
+		<a th:href="@{/admin/tiempos}" class="btn btn-primary"> Asignar Rango de Tiempo</a>
 	</div>
 </body>
 </html>

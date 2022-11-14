@@ -34,9 +34,9 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("")
-	public String home(Model model) {
-		model.addAttribute("usuarios", usuarioRepository.findAll());
-		return "home";
+	public String crud(Model model) {
+		model.addAttribute("usuarios", usuarioService.listarUsuarios());
+		return "crud";
 	}
 	
 	@GetMapping("/create") // http:localhost:8080/usuarios/create

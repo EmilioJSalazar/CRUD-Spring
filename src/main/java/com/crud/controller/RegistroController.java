@@ -11,8 +11,15 @@ public class RegistroController {
 		return "login";
 	}
 	
+	
 	@GetMapping("/")
 	public String verPaginaDeInicio() {
 		return "index";
 	}
+	
+	@GetMapping("/admin")
+	public String administrador() {
+		return "admin";
+	}
+	
 }
