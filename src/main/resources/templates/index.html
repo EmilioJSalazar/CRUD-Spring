@@ -26,8 +26,8 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="navbar-nav"><a class="nav-link active"
 						aria-current="page" href="/">Home</a>
-						<a class="nav-link"	href="/">Ventas</a>
-						<a class="nav-link"	href="/">Votación</a>
+						<a class="nav-link"	href="/ventas">Ventas</a>
+						<a class="nav-link"	href="/votaciones">Votación</a>
 						<a class="nav-link"	href="/">Reporte</a>	
 					</li>
 				</ul>
@@ -47,8 +47,8 @@
 			Bienvenido <span sec:authentication="principal.username"></span>
 		</h4>
 
-		<a th:href="@{/}" class="btn btn-primary"> Registrar Venta</a>
-		<a th:href="@{/}" class="btn btn-primary"> Votación</a>
+		<a th:href="@{/ventas}" class="btn btn-primary"> Registrar Venta</a>
+		<a th:href="@{/votaciones}" class="btn btn-primary"> Votación</a>
 		<a th:href="@{/}" class="btn btn-primary"> Reporte</a>
 		<a th:href="@{/admin}" class="btn btn-primary"> Administrador</a>
 	</div>

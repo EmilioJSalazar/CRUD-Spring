@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Ventas</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+	integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Emilio Salazar</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="navbar-nav"><a class="nav-link" aria-current="page"
+						href="/">Home</a><a class="nav-link active" href="/ventas">Ventas</a>
+						<a class="nav-link" href="/votaciones">Votación</a> <a class="nav-link"
+						href="/">Reporte</a></li>
+				</ul>
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar
+							sesión</a>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-6 con-md-offset-3">
+				<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicación</div>
+				</div>
+
+				<h1>Registrar Venta</h1>
+
+				<form
+					th:action="@{/ventas/{username} (username=${#authentication.name})}"
+					method="post" th:object="${venta}">
+					<input type="hidden" th:value="${#authentication.name}">
+
+					<div class="mb-3">
+						<label for="formGroupExampleInput" class="form-label">Número
+							de factura</label> <input type="text" class="form-control"
+							id="formGroupExampleInput" name="numFactura"
+							placeholder="Escriba el número de la factura">
+					</div>
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">Subtotal</label>
+						<input type="text" class="form-control" id="subtotal"
+							name="subtotal" placeholder="Ingrese el subtotal">
+					</div>
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">IVA</label>
+						<input type="text" class="form-control" id="iva" name="iva"
+							placeholder="Ingrese el iva">
+					</div>					
+					
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">Total</label>
+						<input type="text" class="form-control" id="total" name="total"
+							readonly>
+					</div>
+					<div class="mb-3">
+						<label for="formGroupExampleInput2" class="form-label">Fecha</label>
+						<input type="date" class="form-control"
+							id="formGroupExampleInput2" name="fecha" placeholder="dd/mm/aaaa">
+					</div>
+
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Guardar</button>
+						<a th:href="@{/ventas/lista}" class="btn btn-primary"> Lista de Ventas</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script>
+	document.getElementById("iva").addEventListener("input",function() {
+		var subtotal = document.getElementById("subtotal").value;
+		var iva = document.getElementById("iva").value;
+		var total = (parseFloat(subtotal) + (parseFloat(subtotal) * parseFloat(iva)));
+		var tot = document.getElementById("total");
+		if(((subtotal && !iva) || (iva && !subtotal) || (!iva && !subtotal)) == ""){
+			tot.value = total;
+		}else{
+			tot.value = 0;
+		}
+		
+	});
+	document.getElementById("subtotal").addEventListener("input",function() {
+		var subtotal = document.getElementById("subtotal").value;
+		var iva = document.getElementById("iva").value;
+		var total = (parseFloat(subtotal) + (parseFloat(subtotal) * parseFloat(iva)));
+		var tot = document.getElementById("total");
+		if(((subtotal && !iva) || (iva && !subtotal) || (!iva && !subtotal)) == ""){
+			tot.value = total;
+		}else{
+			tot.value = 0;
+		}
+	});
+</script>
+</html>
