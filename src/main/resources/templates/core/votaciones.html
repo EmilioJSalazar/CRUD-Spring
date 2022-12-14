@@ -47,15 +47,22 @@
 	<div class="container">
 		<div class="row justify-content-md-center">
 			<div th:if=${param.exito}>
-				<div class="alert alert-info">El voto se ha realizado con éxito</div>
+				<div class="alert alert-info">El voto se ha realizado con
+					éxito</div>
+			</div>
+			<div th:if=${param.fracaso}>
+				<div class="alert alert-danger">El voto ya se realizó este mes</div>
 			</div>
 
 			<h1>Votación de compañeros de trabajo</h1>
-			<p>Vote por el que considere mejor vendedor. Recuerde que solo puede votar una vez por mes.</p>
-			
-			<a href="@{/votaciones/{username} (username=${#authentication.name}}" onload=></a>
-			
-			<table class="table">
+			<p>Vote por el que considere mejor vendedor. Recuerde que solo
+				puede votar una vez por mes.</p>
+
+			<a href="@{/votaciones/{username} (username=${#authentication.name}}"
+				></a>
+
+			<p id="currentUser"></p>
+			<table class="table" onload="myFunction()">
 				<thead class="table-light">
 					<tr>
 						<th scope="col">Id</th>
@@ -73,7 +80,8 @@
 						<td th:text="${usuarios.apellido}"></td>
 						<td th:text="${usuarios.correo}"></td>
 						<td th:text="${usuarios.telefono}"></td>
-						<th><a th:href="@{/votaciones/{username}/{id} (username=${#authentication.name}, id=${usuarios.id})}"
+						<th><a
+							th:href="@{/votaciones/{username}/{id} (username=${#authentication.name}, id=${usuarios.id})}"
 							class="btn btn-info"
 							onclick="javascript:if(confirm('¿Estás seguro de votar por este usuario?'));">
 								Votar</a></th>
@@ -86,4 +94,9 @@
 	</div>
 
 </body>
+<script>
+	function myFunction() {
+		document.getElementById("currentUser").innerHTML = "Iframe is loaded.";
+	}
+</script>
 </html>

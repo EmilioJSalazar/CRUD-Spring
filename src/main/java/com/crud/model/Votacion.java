@@ -1,6 +1,8 @@
 package com.crud.model;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,10 +63,16 @@ public class Votacion {
 		this.fecha = fecha;
 	}
 	
-	public Votacion(@NotNull Integer idUsuario, @NotNull Integer usuarioVotado, @NotNull Date fecha) {
+	public Votacion(@NotNull Integer idUsuario, @NotNull Integer usuarioVotado, @NotNull Date date) {
 		super();
 		this.idUsuario = idUsuario;
 		this.usuarioVotado = usuarioVotado;
+		this.fecha = date;
+	}
+	
+
+	public Votacion(@NotNull Date fecha) {
+		super();
 		this.fecha = fecha;
 	}
 
@@ -102,6 +110,12 @@ public class Votacion {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	@Override
+	public String toString() {
+		return "Votacion [id=" + id + ", usuario1=" + usuario1 + ", idUsuario=" + idUsuario + ", usuario2=" + usuario2
+				+ ", usuarioVotado=" + usuarioVotado + ", fecha=" + fecha + "]";
 	}
 
 	
