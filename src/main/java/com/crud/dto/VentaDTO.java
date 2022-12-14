@@ -94,6 +94,12 @@ public class VentaDTO {
 	public void setTotal(Float total) {
 		this.total = total;
 	}
+
+	@Override
+	public String toString() {
+		return "VentaDTO [id=" + id + ", idUsuario=" + idUsuario + ", fecha=" + fecha + ", numFactura=" + numFactura
+				+ ", subtotal=" + subtotal + ", iva=" + iva + ", total=" + total + "]";
+	}
 			
 	
 }

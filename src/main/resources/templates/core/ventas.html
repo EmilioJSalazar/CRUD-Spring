@@ -34,7 +34,7 @@
 					<li class="navbar-nav"><a class="nav-link" aria-current="page"
 						href="/">Home</a><a class="nav-link active" href="/ventas">Ventas</a>
 						<a class="nav-link" href="/votaciones">Votación</a> <a class="nav-link"
-						href="/">Reporte</a></li>
+						href="/reporte">Reporte</a></li>
 				</ul>
 				<ul class="nav navbar-nav">
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar
@@ -63,28 +63,28 @@
 						<label for="formGroupExampleInput" class="form-label">Número
 							de factura</label> <input type="text" class="form-control"
 							id="formGroupExampleInput" name="numFactura"
-							placeholder="Escriba el número de la factura">
+							placeholder="Escriba el número de la factura" required>
 					</div>
 					<div class="mb-3">
 						<label for="formGroupExampleInput2" class="form-label">Subtotal</label>
-						<input type="text" class="form-control" id="subtotal"
-							name="subtotal" placeholder="Ingrese el subtotal">
+						<input type="number" class="form-control" id="subtotal"
+							name="subtotal" placeholder="Ingrese el subtotal" required>
 					</div>
 					<div class="mb-3">
 						<label for="formGroupExampleInput2" class="form-label">IVA</label>
-						<input type="text" class="form-control" id="iva" name="iva"
-							placeholder="Ingrese el iva">
+						<input type="number" class="form-control" id="iva" name="iva"
+							placeholder="Ingrese el iva" step="any" required>
 					</div>					
 					
 					<div class="mb-3">
 						<label for="formGroupExampleInput2" class="form-label">Total</label>
-						<input type="text" class="form-control" id="total" name="total"
+						<input type="number" class="form-control" id="total" name="total"
 							readonly>
 					</div>
 					<div class="mb-3">
 						<label for="formGroupExampleInput2" class="form-label">Fecha</label>
 						<input type="date" class="form-control"
-							id="formGroupExampleInput2" name="fecha" placeholder="dd/mm/aaaa">
+							id="formGroupExampleInput2" name="fecha" placeholder="dd/mm/aaaa" required>
 					</div>
 
 

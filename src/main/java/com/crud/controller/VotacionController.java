@@ -62,7 +62,7 @@ public class VotacionController {
 	}
 
 	@RequestMapping(value = "/{username}/{id}", method = RequestMethod.GET)
-	public String registrarVotacion(@ModelAttribute("atencion") VotacionDTO votacionDTO, @PathVariable String username,
+	public String registrarVotacion(@ModelAttribute("votacion") VotacionDTO votacionDTO, @PathVariable String username,
 			@PathVariable Integer id) {
 		Usuario user1 = usuarioRepository.findBycorreo(username);
 		java.util.Date date = new java.util.Date();
@@ -101,7 +101,6 @@ public class VotacionController {
 		} else {
 			return "redirect:/votaciones?fracaso";
 		}
-
 	}
 
 }

@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.crud.dto.RangoRegistroDTO;
-import com.crud.model.Rango;
-import com.crud.repository.RangoRepository;
 import com.crud.service.RangoService;
 
 @Controller

@@ -1,9 +1,5 @@
 package com.crud.controller;
 
-import java.text.ParseException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +19,6 @@ import com.crud.service.VentaService;
 @RequestMapping("/ventas")
 public class VentaController {
 
-	private final Logger logg = LoggerFactory.getLogger(VentaDTO.class);
 
 	@Autowired
 	private VentaService ventaService;
@@ -51,7 +46,7 @@ public class VentaController {
 		Usuario user = usuarioRepository.findBycorreo(username);
 		ventaDTO.setIdUsuario(user.getId());
 		ventaService.guardar(ventaDTO, 0);
-		logg.info("Info id {}", ventaDTO);
+		System.out.println(ventaDTO.toString());
 		return "redirect:/atenciones";
 	}
 	
